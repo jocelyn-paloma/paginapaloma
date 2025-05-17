@@ -1,0 +1,178 @@
+/* Variables de color */
+:root {
+    --color-fondo: #fdfdfd;
+    --color-texto: #333333;
+    --color-primario: #6c5ce7;
+    --color-secundario: #a29bfe;
+    --color-acento: #ffeaa7;
+    --color-tarjeta: #ffffff;
+    --sombra: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --radio: 12px;
+}
+
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+header {
+    background: var(--color-primario);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--sombra);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: var(--color-secundario);
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    display: block;
+    border-radius: var(--radio);
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-acento);
+    color: var(--color-texto);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+/* Estilo de las secciones */
+.content {
+    display: none;
+    background-color: var(--color-tarjeta);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 2rem;
+    margin: 1rem 0;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#index:target,
+#teoria:target,
+#psicologia:target,
+#formatos:target {
+    display: block;
+}
+
+/* Mostrar #index si no hay hash */
+body:not(:has(:target)) #index {
+    display: block;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+h4 {
+    color: var(--color-secundario);
+    margin: 1rem 0 0.5rem;
+}
+
+/* Listas */
+ul {
+    text-align: left;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+ul li {
+    margin-bottom: 0.6rem;
+}
+
+/* Enlaces y código */
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+code {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+/* Contenedor de info al inicio */
+.info-container {
+    background-color: var(--color-acento);
+    border-radius: var(--radio);
+    padding: 1rem;
+    box-shadow: var(--sombra);
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.info-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-item {
+    font-size: 0.95rem;
+    margin: 0.2rem 0;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        padding: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
